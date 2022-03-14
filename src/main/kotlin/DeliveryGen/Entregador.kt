@@ -1,9 +1,9 @@
 package DeliveryGen
 
 class Entregador (nome:String ,telefone:String):Pessoa(nome,telefone) {
-    var idade = 0
-    var cpf = ""
-    var endereco = ""
+        var idade = 0
+        var cpf = ""
+        var endereco = ""
 
     constructor(nome: String, telefone: String, idade: Int, cpf: String, endereco :String) : this(nome, telefone) {
         this.nome = nome
@@ -13,15 +13,6 @@ class Entregador (nome:String ,telefone:String):Pessoa(nome,telefone) {
         this.endereco = endereco
 
     }
-
-    override fun fazContato() {
-        super.fazContato()
-    }
-
-    override fun feedback() {
-        super.feedback()
-    }
-
 
      fun cadastroEntregador(valor1: String, valor2 :String , valor3: String, valor4: String, valor5 :Int) {
 
@@ -34,10 +25,21 @@ class Entregador (nome:String ,telefone:String):Pessoa(nome,telefone) {
          println("\nCadastro efetuado com sucesso!\uD83C\uDFE9" +
                  "\nNome: $nome" +
                  "\nTelefone: $telefone" +
-                  "\nEndereço: $endereco" +
-                    "\ncpf: $cpf" +
-                     "\nidade: $idade\n")
+                 "\nEndereço: $endereco" +
+                 "\ncpf: $cpf" +
+                 "\nidade: $idade\n")
     }
 
+    override fun fazContato(desejaEnviarMsg: String) {
+        super.fazContato(desejaEnviarMsg)
+    }
+    fun recebePedido(dados: Cliente){
+        println("\nVocê tem uma entregar a ser realizado")
+        println("***Dados da entrega do Cliente***")
+        println(dados.nome)
+        println(dados.telefone)
+        print(dados.endereco)
+
+    }
 
 }
